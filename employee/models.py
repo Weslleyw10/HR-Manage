@@ -8,7 +8,7 @@ from company.models import Company
 # Create your models here.
 class Employee(models.Model):
     id = models.AutoField(primary_key=True, editable=False)
-    user = models.ForeignKey(User, on_delete=CASCADE)
+    user = models.OneToOneField(User, on_delete=CASCADE)
     name = models.CharField(max_length=150)
     departament = models.ManyToManyField(Departament)
     company = models.ForeignKey(Company, on_delete=models.SET_NULL, null=True, blank=True)
